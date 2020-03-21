@@ -33,9 +33,18 @@ def save_models(models):
 
 def model_name(model):
     """
-    returns a model variable as a string
+    returns a model variable name as a string
     """
     return [tuple[0] for tuple in filter(
         lambda x: model is x[1],
         globals().items())
              ][0]
+
+
+def show_files(relative_path='mods/', extension='*.pickle'):
+    """ printing names of files in `relative_path' folder
+    of a particular extension; arguments entered as strings
+    """
+    for name in glob.glob(relative_path):
+        print(os.path.basename(relative_path , extension))
+    return None
