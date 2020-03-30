@@ -56,7 +56,7 @@ The dataset's column lables are prefixed with a space character, which I replace
 
 !["histogram plot of the Online News Popularity dataset"](images/data-histograms.png)
 
-Visualizing data distributions, helped with understanding the types and ranges of data present. Since this was not a regression task, I was not concerned with the apparent lack of strong correlations between the target and any particular predictor. I would leave it to modeling, to make that call.
+Visualizing data distributions helped with understanding the types and ranges of data present. Since this was not a regression task, I was not concerned with the apparent lack of strong correlations between the target and any particular predictor. I would leave it to modeling, to make that call.
 
 One thing I did become concerned with was the number of features.
 
@@ -81,7 +81,7 @@ Given the need, we would likely want to favor false negatives over false positiv
 * False negatives could result in over - delivering for advertisers. While this may lessen charges for individual advertisements, it could enhance reputation, favor advertiser ROI, and encourage repeat business.
 * Since this is a fairly balanced set of classes, the more accurate the model, the better to deliver or exceed the expectations of advertising algorithms. Results are close enough for accuracy to remain a relevant metric.
 
-> __So, why should we look any further?__
+__So, why should we look any further?__
 * Revenue generated from online content relies on views and user interactions.
     - When content is shared widely, more consumers are likely to have opportunities to view it.
     - Consequently, any advertisments served along with the content has greater exposure.
@@ -123,7 +123,7 @@ I took my lead from the random forest feature selection visualization, to determ
 
 Twelve features were found to produce the best predictive scoring model.
 
-!["sequential feature selection fold performance plot"])images/n-features.png)
+!["sequential feature selection fold performance plot"](images/n-features.png)
 
 * A heatmap of correlations between paired columns in the subset of selected features (_see 'modeling' or 'student' notebook_) reveals relatively strong relationships between the features `n_unique_tokens` and `n_non_stop_words`, and between `self_ref_min_shares` and `self_ref_avg_shares` predictors.
 * Since this is a classification project, and since including these features may be necessary to reveal other important in tree based models, I am not concerned with their inclusion.
@@ -141,8 +141,8 @@ The final model was saved as a pickle file, which may be read and applied to fut
 
 * [`student`: **Jupyter Notebook**](student.ipynb): containing code written for this project and comments explaining it.
 
-* [`01-obtain-and-scrub.ipynb`](01-obtain-and-scrub.ipynb): [notebook segment] Reading, cleaning, and previewing data characteristics and apparent relationships
-* [`02-explore-and-model.ipynb`](02-explore-and-model): [notebook segment] Visual and exporatory data analysis, modeling, feature selection, hyperperameter tuning, final modeling and summation
+* [`obtain and scrub`: **Jupyter Notebook**](01-obtain-and-scrub.ipynb): [notebook segment] Reading, cleaning, and previewing data characteristics and apparent relationships
+* [`explore and model`: **Jupyter Notebook**](02-explore-and-model.ipynb): [notebook segment] Visual and exporatory data analysis, modeling, feature selection, hyperperameter tuning, final modeling and summation
 
 #### Visualizations & EDA
 
@@ -157,7 +157,7 @@ The final model was saved as a pickle file, which may be read and applied to fut
 * framework: Jupyter Notebook
 * languages: Python
 * libraries and modules:
-  - Mlxtend feature selection
+  - Mlxtend SequentialFeatureSelector
   - Numpy
   - OS
   - Pandas
