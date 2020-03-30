@@ -12,7 +12,7 @@ The main goal of this project is to create a classification model.
 
 ## Objectives
 
-Through this project, I explore the following questions:
+Through this project, I explore the following question:
   * What features are best able to predict how often an online article will be shared?
 
 
@@ -32,12 +32,12 @@ Irvine's Center for Machine Learning and Intelligent Systems archive (https://ar
 
 Provided data comprises 60 numerical attributes, the first of which being the article url and last of which is the original target value, indicating the number of`shares`.
 
-Other colmns provide data regarding the number of words in each article, the content channel within which the article was published, the day of the week the article was published, and other attributes.
+Other columns provide data regarding the number of words in each article, the content channel within which the article was published, the day of the week the article was published, and other attributes.
 
 
 ### Business Understanding
 
-Mashable is a digital media, news, and blogging website, founded in 2005. It was aquired by Ziff Davis pulishing in 2017.
+Mashable is a digital media, news, and blogging website, founded in 2005. It was acquired by Ziff Davis publishing in 2017.
 
 
 ### Data Understanding
@@ -52,7 +52,7 @@ To leverage the data for binary classification, I engineered a new `Shares_plus`
 
 ### Data Preparation
 
-The dataset's column lables are prefixed with a space character, which I replaced with an empy string. Otherwise, the main cleaning step was an optional choice to shorten a number of labels. I replaced 'entertainment' with 'ent', 'reference' with 'ref', and about a dozen other such customizations, such that an unnecessarily lengthy `weekday_is_friday` label instead became a cleaner `week_fri`.
+The dataset's column labels are prefixed with a space character, which I replaced with an empty string. Otherwise, the main cleaning step was an optional choice to shorten a number of labels. I replaced 'entertainment' with 'ent', 'reference' with 'ref', and about a dozen other such customizations, such that an unnecessarily lengthy `weekday_is_friday` label instead became a cleaner `week_fri`.
 
 !["histogram plot of the Online News Popularity dataset"](images/data-histograms.png)
 
@@ -60,7 +60,7 @@ Visualizing data distributions helped with understanding the types and ranges of
 
 One thing I did become concerned with was the number of features.
 
-Leaving aside the `url`, which I used only as an index column, there were 59 predictors in the dataset. Since the variables are all numeric, I decideded to run an unfit logistic model on the full dataset.
+Leaving aside the `url`, which I used only as an index column, there are 59 predictors in the dataset. Since the variables are all numeric, I decided to run an unfit logistic model on the full dataset.
 
 
 ### Modeling
@@ -84,16 +84,16 @@ Given the need, we would likely want to favor false negatives over false positiv
 __So, why should we look any further?__
 * Revenue generated from online content relies on views and user interactions.
     - When content is shared widely, more consumers are likely to have opportunities to view it.
-    - Consequently, any advertisments served along with the content has greater exposure.
+    - Consequently, any advertisements served along with the content has greater exposure.
     - Since online advertising algorithms favor relevant content, __providers of web pages with highly shared content can expect to enjoy revenue from higher advertising rates__.
 * The difference in earnings per view is often only a few cents. Those cents add up when we are talking about thousands of views and multiple ad placements per article page.
     - For this reason, it is reasonable to look further.
     - __A model increases our ability to predict shareable content by even just a couple of percentage points could be well worth the effort__.
 * In addition, shared content suggest that providers are effectively targeting their key marketing personas with relevant content. That is valuable for brand reputation, __suggests satisfactory user experience__, and encourages repeat visits.
 
-So, at this point, I decideded to both look through a different lens and to look more closely.
+So, at this point, I decided to both look through a different lens and to look more closely.
 
-Random forest is a supervised learning agorithm that performs random sampling with replacement, to essentially fit multiple decision trees. It allows for lower correlation between samples than bagging models, by limiting the number of features on which to split.
+Random forest is a supervised learning algorithm that performs random sampling with replacement, to essentially fit multiple decision trees. It allows for lower correlation between samples than bagging models, by limiting the number of features on which to split.
 
 > Since random forest leaves out a different segment of the data for testing each tree, it removes bias that can affect single decision tree models. Accordingly, for random forest models, separate cross validation is not required.
 
@@ -110,7 +110,7 @@ While model scores remained within only a few percentage points, I wondered whet
 !["feature importances"](images/rf-feature-importances.png)
 
 So far, we have been modeling with all features in the dataframe. The random forest classifier suggests 10-or-so relatively important features--a few more than had been suggested by the decision tree model.
-* Where kw_avg_avg reached 0.33 and channel_world eeked - out .01 on the scale, for our tree model, random forest model improtances for the same two features are approximately 0.15 and .07, respectively.
+* Where kw_avg_avg reached 0.33 and channel_world eeked - out .01 on the scale, for our tree model, random forest model importances for the same two features are approximately 0.15 and .07, respectively.
 * Even if the model itself had not improved, we might at least make running the it less computationally expensive.
 
 Here, again, we can let machine learning draw the line.
