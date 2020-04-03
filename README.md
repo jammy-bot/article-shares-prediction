@@ -150,7 +150,7 @@ The final model was saved as a pickle file, which may be read and applied to fut
 
 ### Non-Technical Presentation
 
-* [presentation.pdf](../blob/master/presentation.pdf) summarizing  methodology and findings
+* [presentation.pdf](presentation.pdf) summarizing  methodology and findings
 
 
 # Technologies
