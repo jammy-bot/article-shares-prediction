@@ -180,6 +180,4 @@ The final model was saved as a pickle file, which may be read and applied to fut
   - Mlxtend plotting
 <!-- #endregion -->
 
-```python
 
-```
