@@ -1,6 +1,6 @@
 <!-- #region -->
 
-# Module 3 Final Project
+# Online Article Shares Prediction
 
 !["thumbs-up-thumbs-down"](images/facebook-thumbs-up-thumbs-down.jpg)
 
@@ -125,7 +125,7 @@ Twelve features were found to produce the best predictive scoring model.
 
 !["sequential feature selection fold performance plot"](images/n-features.png)
 
-* A heatmap of correlations between paired columns in the subset of selected features (_see 'modeling' or 'student' notebook_) reveals relatively strong relationships between the features `n_unique_tokens` and `n_non_stop_words`, and between `self_ref_min_shares` and `self_ref_avg_shares` predictors.
+* A heatmap of correlations between paired columns in the subset of selected features (_see 'modeling' or 'online-article-shares-prediction.ipynb' notebook_) reveals relatively strong relationships between the features `n_unique_tokens` and `n_non_stop_words`, and between `self_ref_min_shares` and `self_ref_avg_shares` predictors.
 * Since this is a classification project, and since including these features may be necessary to reveal other important in tree based models, I am not concerned with their inclusion.
 * In fact:
     - Feature 27 (`self_ref_min_shares`) was added, at fold 11, where the model's score dropped.
@@ -139,14 +139,14 @@ The final model was saved as a pickle file, which may be read and applied to fut
 
 # Featured Notebooks/Analysis
 
-* [`student`: **Jupyter Notebook**](student.ipynb): containing code written for this project and comments explaining it.
+* [`article shares prediction`: **Jupyter Notebook**](online-article-shares-prediction.ipynb): containing code written for this project and comments explaining it.
 
 * [`obtain and scrub`: **Jupyter Notebook**](01-obtain-and-scrub.ipynb): [notebook segment] Reading, cleaning, and previewing data characteristics and apparent relationships
 * [`explore and model`: **Jupyter Notebook**](02-explore-and-model.ipynb): [notebook segment] Visual and exporatory data analysis, modeling, feature selection, hyperperameter tuning, final modeling and summation
 
 #### Visualizations & EDA
 
-* Visualizations, with corresponding interpretations are included within the 'student' and supporting Jupyter notebook(s).
+* Visualizations, with corresponding interpretations are included within the 'online-article-shares-prediction.ipynb' and supporting Jupyter notebook(s).
 
 ### Non-Technical Presentation
 
